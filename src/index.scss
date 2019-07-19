@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Courgette|Open+Sans&display=swap');
+
+*, *:after, *:before{
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background:#4A744B url('./forest-wallpaper.jpg') no-repeat fixed center;
+  font-size: 1rem;
+}
+.courgette {
+  font-family: 'Courgette', cursive;
+}
+
+.open-sans {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.buttons{
+  margin-top: 1.25rem;
+}
+
+.buttons:after{
+  content: "";
+  clear: both;
+  display: table;  
+}
+
+#tweet-quote{
+  float: left;
+}
+
+#new-quote{
+  float: right;
+}
+
+.btn{
+  display: inline-block;
+  font-weight: 400;
+  color: #212529;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  background-color: white;
+  padding: 0.5rem 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  border: 0;
+  border-radius: 50rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn:focus{
+  outline: 0 none;
+}
+
+.btn-gdt{
+  color: #fff;
+  background: linear-gradient(to right, #4a744b 0%, lighten(#4a744b, 30%) 100%)
+}
