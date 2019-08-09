@@ -1,5 +1,4 @@
-import React from 'react';
-import './App.scss';
+import React, {useState} from 'react';
 
 const QOUTES = [
   {
@@ -64,48 +63,46 @@ const QOUTES = [
   }
 ];
 
-class App extends React.Component
+function App()
 {
-  constructor(props){
-    super(props);
-    this.state = {
-      quote: {}
-    }
-    this.changeQoute = this.changeQoute.bind(this);
-  }
-
-  componentDidMount(){
-    this.setState({quote: QOUTES[Math.floor(Math.random() * (QOUTES.length - 0))]});
-  }
-
-  changeQoute(){
+  const [quote, setQuote] = useState(QOUTES[Math.floor(Math.random() * (QOUTES.length - 0))]);
+  const changeQoute = () => {
     let max = QOUTES.length;
     let index = Math.floor(Math.random() * (max - 0));
     let newQuote = QOUTES[index];
-    this.setState({quote: newQuote})
+    setQuote(newQuote)
   }
-  render() {
-    return (
-      <div className="App">
-        <div id="quote-box">
-          <div className="quote">
-            <div id="text" className='courgette'>
-              <q>{this.state.quote.text}</q>
-            </div>
-            <div id="author" className='open-sans'>
-              -{this.state.quote.author}
-            </div>
+  return (
+    <div className="App">
+      <div id="quote-box">
+        <div className="quote">
+          <div id="text" className='courgette'>
+            <q>{quote.text}</q>
           </div>
-          <div id="buttons">
-            <a className="btn" id="tweet-quote" target="_blank" href={`https://twitter.com/intent/tweet?text="${this.state.quote.text}" ${this.state.quote.author}`}>
-              <i class="fab fa-twitter"></i>
-            </a>
-            <button className="btn" onClick={this.changeQoute} id="new-quote">Nueva Frase</button>
-          </div> 
+          <div id="author" className='open-sans'>
+            - {quote.author}
+          </div>
         </div>
+        <Buttons quoteText={quote.text} quoteAuthor={quote.author}  changeQoute={changeQoute}/>
       </div>
-    );
-  }
+    </div>
+  );
 } 
+
+function Buttons(props){
+  return(
+    <div id="buttons">
+      <button className="btn" onClick={props.changeQoute} id="new-quote">Nueva Frase</button>
+      <a 
+        className="btn" 
+        id="tweet-quote" 
+        target="_blank"
+        rel="noopener noreferrer" 
+        href={`https://twitter.com/intent/tweet?text="${props.text}" ${props.author}`}>
+        Tuitear
+      </a>
+    </div>
+  );
+}
 
 export default App;

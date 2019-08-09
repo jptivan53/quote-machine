@@ -2,12 +2,15 @@
 
 *, *:after, *:before{
   box-sizing: border-box;
+  transition: all .4s linear;
 }
 body {
   margin: 0;
   background:#4A744B url('./forest-wallpaper.jpg') no-repeat fixed center;
   font-size: 1rem;
+  font-family: Helvetica, serif;
 }
+
 .courgette {
   font-family: 'Courgette', cursive;
 }
@@ -16,46 +19,82 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-.buttons{
-  margin-top: 1.25rem;
+.App{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.buttons:after{
-  content: "";
-  clear: both;
-  display: table;  
+#quote-box{
+  width: 80%;
+  height: auto;
+  background-color: #D9D9D9;
+  padding: 3.5rem 3.5rem 2rem;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1em;
+  box-shadow: 0 0 15px 2px #1C5B1A;
+}
+
+#text{
+  font-size: 2em; 
+}
+
+#author{
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: right;
+  padding: 10px 0;
+}
+
+#buttons{
+  margin-top: 1.25rem;
+  &:after{
+    content: "";
+    clear: both;
+    display: table;
+  }
 }
 
 #tweet-quote{
-  float: left;
+  float: right;
 }
 
 #new-quote{
-  float: right;
+  float: left;
 }
 
 .btn{
   display: inline-block;
-  font-weight: 400;
-  color: #212529;
-  text-align: center;
-  vertical-align: middle;
   user-select: none;
-  background-color: white;
   padding: 0.5rem 0.75rem;
   font-size: 1.25rem;
   line-height: 1.5;
   border: 0;
-  border-radius: 50rem;
+  border-radius: 10rem;
   text-decoration: none;
   cursor: pointer;
-}
-
-.btn:focus{
-  outline: 0 none;
-}
-
-.btn-gdt{
   color: #fff;
-  background: linear-gradient(to right, #4a744b 0%, lighten(#4a744b, 30%) 100%)
+  background: linear-gradient(to right, #4a744b 0%, lighten(#4a744b, 30%) 100%);
+  &:hover{
+    box-shadow: 0 0 4px #1C5B1A;
+  }
+}
+
+@media screen and (max-width: 578px) {
+  #quote-box{
+    padding: 2rem 2rem 1rem;
+  }
+  #text{
+    font-size: 1.5em;
+  }
+  #author{
+    font-size: 1em;
+  }
+  .btn{
+    font-size: 1rem;
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
 }
