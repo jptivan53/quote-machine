@@ -32,11 +32,11 @@ function App() {
         </span>{" "}
         by{" "}
         <a
-          href="https://github.com/jptivan53"
+          href="https://github.com/jeantivan"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Jean T.
+          Jean Tivan
         </a>
       </div>
     </div>
